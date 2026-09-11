@@ -1,1 +1,0 @@
-.site-footer{grid-template-columns:minmax(0,1fr) minmax(380px,500px)!important;gap:5vw!important}.contact-form{width:100%;max-width:500px}@media(max-width:900px){.site-footer{grid-template-columns:minmax(0,1fr) minmax(320px,420px)!important;gap:4vw!important}}@media(max-width:700px){.site-footer{display:block!important}.contact-form{max-width:none;width:100%}}
