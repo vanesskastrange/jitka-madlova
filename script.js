@@ -21,6 +21,7 @@ const route = () => {
     bindReviewPreviews();
   } else {
     main.innerHTML = homepage;
+    buildPortfolioFromFolder();
     bindProjects(category);
   }
   if (hash === '#contact') {
@@ -32,16 +33,70 @@ const route = () => {
   toggle.setAttribute('aria-expanded', 'false');
 };
 
+const buildPortfolioFromFolder = () => {
+  const grid = document.querySelector('.project-grid');
+  if (!grid || !window.portfolioImages) return;
+
+  const layoutClasses = [
+    'project-large',
+    'project-narrow',
+    'project-mid',
+    'project-wide',
+    'project-mid project-offset',
+    'project-narrow project-offset',
+    'project-wide project-offset',
+    'project-mid',
+    'project-narrow project-offset',
+    'project-large'
+  ];
+
+  const captions = [
+    ['Casa T', 'BYDLENÍ / 2024'],
+    ['Nedělní objekty', 'VEŘEJNÝ PROSTOR / 2023'],
+    ['Byt Vinohrady', 'BYDLENÍ / 2023'],
+    ['Tvar a funkce', 'VEŘEJNÝ PROSTOR / 2022'],
+    ['Dům pro dva', 'BYDLENÍ / 2022'],
+    ['Měkká geometrie', 'BYDLENÍ / 2021'],
+    ['Dům u lesa', 'BYDLENÍ / 2020'],
+    ['Ateliér K', 'ATELIÉR / 2020'],
+    ['Dům v zahradě', 'BYDLENÍ / 2019'],
+    ['Městský byt', 'BYDLENÍ / 2019'],
+    ['Dřevo a světlo', 'INTERIÉR / DETAIL'],
+    ['Kámen a atmosféra', 'EXTERIÉR / DETAIL'],
+    ['Měkké linie', 'OBÝVACÍ PROSTOR'],
+    ['Stín a textura', 'MATERIÁL / DETAIL'],
+    ['Zahrada a klid', 'VENKOVNÍ ARCHITEKTURA'],
+    ['Světlo a konstrukce', 'ATELIÉR / DENNÍ SVĚTLO'],
+    ['Hranice a tvar', 'ARCHITEKTURA / OBJEM'],
+    ['Přirozený materiál', 'JÍDELNA / KONCEPT'],
+    ['Pohled a perspektiva', 'PROSTOR / SVĚTLO'],
+    ['List a povrch', 'ZAHRADA / DETAIL'],
+    ['Základ a prostor', 'DŮM / STRUKTURA'],
+    ['Stavba a proporce', 'INTERIÉR / FORMA']
+  ];
+
+  const stableImages = [...window.portfolioImages];
+  grid.innerHTML = stableImages.map((file, index) => {
+    const layout = layoutClasses[index % layoutClasses.length];
+    const fallback = captions[index % captions.length];
+    const title = fallback[0];
+    const meta = fallback[1];
+    const safeTitle = title.replace(/[<>]/g, '');
+    const safeMeta = meta.replace(/[<>]/g, '');
+    return `
+      <article class="project ${layout}" data-title="${safeTitle}" data-meta="${safeMeta}" data-images="portfolio/${file}">
+        <button class="project-open" type="button" aria-label="Otevřít projekt ${safeTitle}">
+          <img class="project-image" src="portfolio/${file}" alt="${safeTitle}" loading="lazy" />
+          <span class="project-overlay"><strong>${safeTitle}</strong><small>${safeMeta}</small></span>
+        </button>
+      </article>
+    `;
+  }).join('');
+};
+
 const bindProjects = (category = '') => {
-  const materials = ['Dřevo / světlo', 'Kámen / beton', 'Textil / klid', 'Objem / světlo', 'Dřevo / měkkost', 'Barva / detail', 'Kámen / zahrada', 'Linie / práce', 'Světlo / zeleň', 'Dřevo / proporce'];
-  document.querySelectorAll('.project').forEach((project, index) => {
+  document.querySelectorAll('.project').forEach((project) => {
     project.classList.toggle('is-filtered-out', Boolean(category) && !project.dataset.meta.startsWith(category));
-    if (!project.querySelector('.project-signature')) {
-      const signature = document.createElement('span');
-      signature.className = 'project-signature';
-      signature.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span><small>${materials[index] || 'Materiál / detail'}</small>`;
-      project.appendChild(signature);
-    }
   });
 };
 

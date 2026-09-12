@@ -1,0 +1,232 @@
+/* Expressive Asymmetric Portfolio Layout - Dynamic Grid Spans, Staggered Offsets & Breathing Room */
+
+.portfolio {
+  padding-top: 120px !important;
+  padding-bottom: 110px !important;
+  padding-left: 10vw !important;
+  padding-right: 10vw !important;
+  background: var(--paper, #fbfaf8) !important;
+}
+
+.portfolio .project-grid {
+  display: grid !important;
+  grid-template-columns: repeat(12, 1fr) !important;
+  gap: 54px 28px !important;
+  align-items: start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+.portfolio .project {
+  display: block !important;
+  position: relative !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* Varied asymmetric spans and artistic vertical offsets */
+.portfolio .project:nth-child(10n + 1) { grid-column: span 7 !important; }
+.portfolio .project:nth-child(10n + 2) { grid-column: span 5 !important; margin-top: 65px !important; }
+.portfolio .project:nth-child(10n + 3) { grid-column: span 4 !important; }
+.portfolio .project:nth-child(10n + 4) { grid-column: span 8 !important; margin-top: 20px !important; }
+.portfolio .project:nth-child(10n + 5) { grid-column: span 5 !important; margin-top: 75px !important; }
+.portfolio .project:nth-child(10n + 6) { grid-column: span 7 !important; }
+.portfolio .project:nth-child(10n + 7) { grid-column: span 4 !important; margin-top: 50px !important; }
+.portfolio .project:nth-child(10n + 8) { grid-column: span 4 !important; }
+.portfolio .project:nth-child(10n + 9) { grid-column: span 4 !important; margin-top: 80px !important; }
+.portfolio .project:nth-child(10n + 10) { grid-column: 3 / 11 !important; margin: 45px 0 !important; }
+
+/* Interactive button wrapper */
+.portfolio .project .project-open {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  background: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+}
+
+/* Image styling - Edge-to-edge frame filling with varied heights */
+.portfolio .project img.project-image {
+  display: block !important;
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border: 0 !important;
+  background: transparent !important;
+  filter: grayscale(1) !important;
+  transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.2, 1, 0.3, 1) !important;
+}
+
+.portfolio .project:nth-child(3n + 1) img.project-image { height: 280px !important; }
+.portfolio .project:nth-child(3n + 2) img.project-image { height: 210px !important; }
+.portfolio .project:nth-child(3n + 3) img.project-image { height: 245px !important; }
+
+.portfolio .project-open:hover img.project-image,
+.portfolio .project-open:focus-visible img.project-image,
+.portfolio .project:hover img.project-image {
+  filter: grayscale(0) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Overlay caption - Hidden by default, visible on hover at bottom left */
+.portfolio .project .project-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  padding: 14px 16px !important;
+  margin: 0 !important;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.76) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%) !important;
+  opacity: 0 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease !important;
+  z-index: 2 !important;
+}
+
+.portfolio .project-open:hover .project-overlay,
+.portfolio .project-open:focus-visible .project-overlay,
+.portfolio .project:hover .project-overlay {
+  opacity: 1 !important;
+}
+
+/* Heading font for title (Playfair Display) */
+.portfolio .project .project-overlay strong {
+  display: block !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  color: #ffffff !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+  text-transform: none !important;
+}
+
+/* Navigation font for category metadata (Space Grotesk / Manrope uppercase tracking) */
+.portfolio .project .project-overlay small {
+  display: block !important;
+  font-family: 'Space Grotesk', 'Manrope', Arial, sans-serif !important;
+  font-size: 8px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  margin-top: 3px !important;
+}
+
+/* Hide legacy elements */
+.portfolio .project .project-signature {
+  display: none !important;
+}
+
+/* Fixed floating contact button & navigation button polish */
+.fixed-contact {
+  position: fixed !important;
+  right: 24px !important;
+  bottom: 20px !important;
+  z-index: 99 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 32px !important;
+  padding: 0 14px !important;
+  background: rgba(251, 250, 248, 0.94) !important;
+  border: 1px solid #1b1c1a !important;
+  border-radius: 20px !important;
+  color: #1b1c1a !important;
+  font-family: 'Space Grotesk', 'Manrope', Arial, sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(10px) !important;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease !important;
+}
+
+.fixed-contact span {
+  display: inline-block !important;
+  margin-left: 5px !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  transform: translateY(-1px) !important;
+}
+
+.fixed-contact:hover {
+  background: #1b1c1a !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+.side-arrow {
+  display: none !important;
+}
+
+/* Responsive grid scaling for full desktop monitors vs smaller preview windows */
+.portfolio {
+  padding-top: 110px !important;
+  padding-bottom: 90px !important;
+  padding-left: 6vw !important;
+  padding-right: 6vw !important;
+  background: var(--paper, #fbfaf8) !important;
+}
+
+.portfolio .project-grid {
+  display: block !important;
+  columns: 5 220px !important;
+  column-gap: 20px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+@media (max-width: 1400px) {
+  .portfolio .project-grid {
+    columns: 4 200px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .portfolio {
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+  }
+  .portfolio .project-grid {
+    columns: 3 180px !important;
+    column-gap: 16px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .portfolio {
+    padding-left: 4vw !important;
+    padding-right: 4vw !important;
+  }
+  .portfolio .project-grid {
+    columns: 2 140px !important;
+    column-gap: 12px !important;
+  }
+  .fixed-contact {
+    right: 16px !important;
+    bottom: 16px !important;
+    padding: 8px 14px !important;
+    font-size: 9px !important;
+  }
+}
+
