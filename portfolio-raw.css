@@ -168,6 +168,24 @@
   transform: translateY(-2px) !important;
 }
 
+/* Brand Logo Always Dark Ink (No Burgundy on hover or visited state) */
+.brand,
+.brand:link,
+.brand:visited,
+.brand:hover,
+.brand:active,
+.brand-name,
+.brand:hover .brand-name,
+.brand:visited .brand-name,
+.brand-mark,
+.brand:hover .brand-mark,
+.brand:visited .brand-mark,
+.brand-mark strong,
+.brand-mark small {
+  color: #1b1c1a !important;
+  border-color: #1b1c1a !important;
+}
+
 /* Nav Link Wine-Red Hover Accent */
 .site-nav a:hover,
 .site-nav .nav-contact:hover,
