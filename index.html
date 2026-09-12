@@ -7,7 +7,7 @@
   <title>Jitka Mádlová Studio | Interiérový design</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="minimal.css" />
   <link rel="stylesheet" href="minimal-portfolio.css" />
   <link rel="stylesheet" href="gallery-layout.css" />
@@ -28,6 +28,44 @@
   <link rel="stylesheet" href="bio-format.css" />
   <link rel="stylesheet" href="bio-photo.css" />
   <link rel="stylesheet" href="bio-layout.css" />
+  <link rel="stylesheet" href="lighter-background.css" />
+  <link rel="stylesheet" href="quote-style.css" />
+  <link rel="stylesheet" href="editorial-type.css" />
+  <link rel="stylesheet" href="italic-accents.css" />
+  <link rel="stylesheet" href="final-polish.css" />
+  <link rel="stylesheet" href="header-cleanup.css" />
+  <link rel="stylesheet" href="header-bands.css" />
+  <link rel="stylesheet" href="natural-headings.css" />
+  <link rel="stylesheet" href="soft-serif.css" />
+  <link rel="stylesheet" href="services-heading-fix.css" />
+  <link rel="stylesheet" href="contact-align.css" />
+  <link rel="stylesheet" href="portfolio-align.css" />
+  <link rel="stylesheet" href="portfolio-tighter.css" />
+  <link rel="stylesheet" href="portfolio-shift.css" />
+  <link rel="stylesheet" href="contact-sketch.css" />
+  <link rel="stylesheet" href="contact-plan-sketch.css" />
+  <link rel="stylesheet" href="contact-sketch-asset.css" />
+  <link rel="stylesheet" href="contact-footer-sketch.css" />
+  <link rel="stylesheet" href="contact-sketch-off.css" />
+  <link rel="stylesheet" href="accent-detail.css" />
+  <link rel="stylesheet" href="page-signatures.css" />
+  <link rel="stylesheet" href="portfolio-voice.css" />
+  <link rel="stylesheet" href="portfolio-signature.css" />
+  <link rel="stylesheet" href="gallery-only.css" />
+  <link rel="stylesheet" href="header-solid-wordmark.css" />
+  <link rel="stylesheet" href="header-spacing-fix.css" />
+  <link rel="stylesheet" href="nav-serif.css" />
+  <link rel="stylesheet" href="nav-restore.css" />
+  <link rel="stylesheet" href="nav-industrial.css" />
+  <link rel="stylesheet" href="projects-align.css" />
+  <link rel="stylesheet" href="portfolio-axis-remove.css" />
+  <link rel="stylesheet" href="reviews-refine.css" />
+  <link rel="stylesheet" href="review-preview.css" />
+  <link rel="stylesheet" href="review-transition.css" />
+  <link rel="stylesheet" href="review-clean-transition.css" />
+  <link rel="stylesheet" href="header-unified.css" />
+  <link rel="stylesheet" href="reviews-contact-flow.css" />
+  <link rel="stylesheet" href="space-system.css" />
 </head>
 <body>
   <header class="site-header">
@@ -36,7 +74,7 @@
       <span class="brand-name">Jitka Mádlová Studio</span>
     </a>
     <nav class="site-nav" aria-label="Hlavní navigace">
-      <div class="nav-group"><a href="#portfolio">Projekty</a><div class="nav-dropdown"><a href="#portfolio">Všechny projekty</a><a href="#portfolio-residential">Bydlení</a><a href="#portfolio-public">Veřejné prostory</a></div></div>
+      <a href="#portfolio">Projekty</a>
       <div class="nav-group"><a href="#about">Studio</a><div class="nav-dropdown"><a href="#about">Bio</a><a href="#services">Služby</a><a href="#reviews">Slova zákazníků</a></div></div>
       <a class="nav-contact" href="#contact">Kontakt</a>
     </nav>
@@ -83,7 +121,8 @@
   </main>
 
   <a class="fixed-contact" href="#contact">Kontaktujte mě <span>&#8599;</span></a>
-  <footer id="contact" class="site-footer"><div class="contact-copy"><p class="eyebrow">Kontakt</p><h2>Přejete si prostor<br />šitý na míru?</h2><p class="contact-intro">Příjemný, osobitý a dobře fungující interiér nebo exteriér začíná důkladnou diskusí o vašich představách a potřebách.</p><div class="contact-phases"><span>Konzultace</span><span>Studie</span><span>Realizační projekt</span><span>Realizace</span></div><a href="tel:+420777894648">+420 777 894 648 &#8599;</a><a href="mailto:j.madlova@volny.cz">j.madlova@volny.cz &#8599;</a></div><form class="contact-form"><label for="contact-name">Jméno</label><input id="contact-name" name="name" type="text" autocomplete="name" required /><label for="contact-email">E-mail</label><input id="contact-email" name="email" type="email" autocomplete="email" required /><label for="contact-message">Vaše zpráva</label><textarea id="contact-message" name="message" rows="5" required></textarea><button type="submit">Odeslat zprávu <span>&#8599;</span></button><p class="form-note">Otevře se vaše e-mailová aplikace.</p></form></footer>
+  <a class="side-arrow" href="#contact" aria-label="Přejít ke kontaktu">&#8595;</a>
+    <footer id="contact" class="site-footer"><div class="contact-sketch" aria-hidden="true"><img src="contact-interior-sketch.svg" alt="" /></div><div class="contact-copy"><p class="eyebrow">Kontakt</p><h2>Přejete si <span class="accent-word">prostor</span><br />šitý na míru?</h2><p class="contact-intro">Příjemný, osobitý a dobře fungující interiér nebo exteriér začíná důkladnou diskusí o vašich představách a potřebách.</p><div class="contact-phases"><span>Konzultace</span><span>Studie</span><span>Realizační projekt</span><span>Realizace</span></div><a href="tel:+420777894648">+420 777 894 648 &#8599;</a><a href="mailto:j.madlova@volny.cz">j.madlova@volny.cz &#8599;</a></div><form class="contact-form"><label for="contact-name">Jméno</label><input id="contact-name" name="name" type="text" autocomplete="name" required /><label for="contact-email">E-mail</label><input id="contact-email" name="email" type="email" autocomplete="email" required /><label for="contact-message">Vaše zpráva</label><textarea id="contact-message" name="message" rows="5" required></textarea><button type="submit">Odeslat zprávu <span>&#8599;</span></button><p class="form-note">Otevře se vaše e-mailová aplikace.</p></form></footer>
   <script src="script.js"></script>
 </body>
 </html>
