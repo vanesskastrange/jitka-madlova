@@ -25,7 +25,14 @@ const route = () => {
     bindProjects(category);
   }
   if (hash === '#contact') {
-    document.querySelector('#contact')?.scrollIntoView();
+    if (!document.querySelector('#contact')) {
+      main.innerHTML = homepage;
+      buildPortfolioFromFolder();
+      bindProjects(category);
+    }
+    setTimeout(() => {
+      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
   } else {
     window.scrollTo(0, 0);
   }

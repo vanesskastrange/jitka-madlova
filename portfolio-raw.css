@@ -208,6 +208,7 @@
   }
 }
 
+/* Mobile Navigation & Mobile Dropdown Enhancements */
 @media (max-width: 700px) {
   .portfolio {
     padding-left: 5vw !important;
@@ -231,6 +232,26 @@
     bottom: 16px !important;
     padding: 0 12px !important;
     font-size: 8.5px !important;
+  }
+  .side-arrow {
+    right: 14px !important;
+    bottom: 60px !important;
+    top: auto !important;
+    transform: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    z-index: 98 !important;
+  }
+  .site-header.nav-open .nav-dropdown {
+    position: static !important;
+    display: grid !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    padding: 8px 0 0 12px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
   }
 }
 
