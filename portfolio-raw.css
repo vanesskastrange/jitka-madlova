@@ -1,44 +1,41 @@
-/* Expressive Asymmetric Portfolio Layout - Dynamic Grid Spans, Staggered Offsets & Breathing Room */
+/* Artistic Asymmetric Masonry Portfolio Layout - Natural Image Aspect Ratios, Zero Cropping, Zero White Borders & Static Order */
 
 .portfolio {
-  padding-top: 120px !important;
-  padding-bottom: 110px !important;
+  padding-top: 110px !important;
+  padding-bottom: 90px !important;
   padding-left: 10vw !important;
   padding-right: 10vw !important;
   background: var(--paper, #fbfaf8) !important;
 }
 
 .portfolio .project-grid {
-  display: grid !important;
-  grid-template-columns: repeat(12, 1fr) !important;
-  gap: 54px 28px !important;
-  align-items: start !important;
+  display: block !important;
+  columns: 4 220px !important;
+  column-gap: 28px !important;
   margin: 0 !important;
   padding: 0 !important;
   transform: none !important;
 }
 
 .portfolio .project {
-  display: block !important;
+  display: inline-block !important;
+  width: 100% !important;
+  margin: 0 0 32px 0 !important;
+  break-inside: avoid !important;
+  vertical-align: top !important;
   position: relative !important;
   min-width: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
   transform: none !important;
   opacity: 1 !important;
 }
 
-/* Varied asymmetric spans and artistic vertical offsets */
-.portfolio .project:nth-child(10n + 1) { grid-column: span 7 !important; }
-.portfolio .project:nth-child(10n + 2) { grid-column: span 5 !important; margin-top: 65px !important; }
-.portfolio .project:nth-child(10n + 3) { grid-column: span 4 !important; }
-.portfolio .project:nth-child(10n + 4) { grid-column: span 8 !important; margin-top: 20px !important; }
-.portfolio .project:nth-child(10n + 5) { grid-column: span 5 !important; margin-top: 75px !important; }
-.portfolio .project:nth-child(10n + 6) { grid-column: span 7 !important; }
-.portfolio .project:nth-child(10n + 7) { grid-column: span 4 !important; margin-top: 50px !important; }
-.portfolio .project:nth-child(10n + 8) { grid-column: span 4 !important; }
-.portfolio .project:nth-child(10n + 9) { grid-column: span 4 !important; margin-top: 80px !important; }
-.portfolio .project:nth-child(10n + 10) { grid-column: 3 / 11 !important; margin: 45px 0 !important; }
+/* Subtle staggered vertical offsets for artistic asymmetry within column flow */
+.portfolio .project:nth-child(4n + 2) {
+  margin-top: 36px !important;
+}
+.portfolio .project:nth-child(4n + 4) {
+  margin-top: 24px !important;
+}
 
 /* Interactive button wrapper */
 .portfolio .project .project-open {
@@ -54,22 +51,19 @@
   overflow: hidden !important;
 }
 
-/* Image styling - Edge-to-edge frame filling with varied heights */
+/* Image styling - Natural aspect ratio scaling, zero cropping, zero filler lines */
 .portfolio .project img.project-image {
   display: block !important;
   width: 100% !important;
-  height: 250px !important;
-  object-fit: cover !important;
-  object-position: center !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  object-fit: contain !important;
   border: 0 !important;
   background: transparent !important;
   filter: grayscale(1) !important;
   transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.2, 1, 0.3, 1) !important;
 }
-
-.portfolio .project:nth-child(3n + 1) img.project-image { height: 280px !important; }
-.portfolio .project:nth-child(3n + 2) img.project-image { height: 210px !important; }
-.portfolio .project:nth-child(3n + 3) img.project-image { height: 245px !important; }
 
 .portfolio .project-open:hover img.project-image,
 .portfolio .project-open:focus-visible img.project-image,
@@ -174,59 +168,51 @@
   transform: translateY(-2px) !important;
 }
 
+/* Nav Link Wine-Red Hover Accent */
+.site-nav a:hover,
+.site-nav .nav-contact:hover,
+.nav-group>a:hover,
+.nav-dropdown a:hover,
+.site-nav a:hover span,
+.site-nav .nav-group:hover>a {
+  color: #7c2534 !important;
+}
+
 .side-arrow {
-  display: none !important;
+  display: grid !important;
 }
 
-/* Responsive grid scaling for full desktop monitors vs smaller preview windows */
-.portfolio {
-  padding-top: 110px !important;
-  padding-bottom: 90px !important;
-  padding-left: 6vw !important;
-  padding-right: 6vw !important;
-  background: var(--paper, #fbfaf8) !important;
-}
-
-.portfolio .project-grid {
-  display: block !important;
-  columns: 5 220px !important;
-  column-gap: 20px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  transform: none !important;
-}
-
-@media (max-width: 1400px) {
-  .portfolio .project-grid {
-    columns: 4 200px !important;
-  }
-}
-
+/* Responsive grid scaling */
 @media (max-width: 1000px) {
   .portfolio {
-    padding-left: 5vw !important;
-    padding-right: 5vw !important;
-  }
-  .portfolio .project-grid {
-    columns: 3 180px !important;
-    column-gap: 16px !important;
+    padding-left: 6vw !important;
+    padding-right: 6vw !important;
   }
 }
 
 @media (max-width: 700px) {
   .portfolio {
-    padding-left: 4vw !important;
-    padding-right: 4vw !important;
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
   }
   .portfolio .project-grid {
-    columns: 2 140px !important;
-    column-gap: 12px !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .portfolio .project,
+  .portfolio .project-large,
+  .portfolio .project-narrow,
+  .portfolio .project-mid,
+  .portfolio .project-wide,
+  .portfolio .project-offset {
+    grid-column: span 1 !important;
+    margin-top: 0 !important;
   }
   .fixed-contact {
     right: 16px !important;
     bottom: 16px !important;
-    padding: 8px 14px !important;
-    font-size: 9px !important;
+    padding: 0 12px !important;
+    font-size: 8.5px !important;
   }
 }
 
