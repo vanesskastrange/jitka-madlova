@@ -1,7 +1,7 @@
 :root {
-  --accent: #d3a13b;
-  --warm-yellow: #d3a13b;
-  --warm-yellow-transparent: rgba(211, 161, 59, 0.52);
+  --accent: #ffeb3b;
+  --warm-yellow: #ffeb3b;
+  --warm-yellow-transparent: rgba(255, 235, 59, 0.52);
 }
 
 /* This strip is part of the fixed header and therefore remains on screen. */
