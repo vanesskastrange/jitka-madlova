@@ -104,6 +104,9 @@ const buildPortfolioFromFolder = () => {
 const bindProjects = (category = '') => {
   document.querySelectorAll('.project').forEach((project) => {
     project.classList.toggle('is-filtered-out', Boolean(category) && !project.dataset.meta.startsWith(category));
+    project.querySelector('.project-open')?.addEventListener('click', () => {
+      project.classList.toggle('is-caption-visible');
+    });
   });
 };
 

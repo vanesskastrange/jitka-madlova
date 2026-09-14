@@ -1,0 +1,105 @@
+:root {
+  --accent: #d3a13b;
+  --warm-yellow: #d3a13b;
+  --warm-yellow-transparent: rgba(211, 161, 59, 0.52);
+}
+
+/* This strip is part of the fixed header and therefore remains on screen. */
+.site-header::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 10px;
+  background: var(--warm-yellow-transparent);
+  pointer-events: none;
+}
+
+/* Keep expanded navigation above the fixed accent strip. */
+.nav-group,
+.nav-dropdown {
+  z-index: 2;
+}
+
+/* Replace every active blue accent with the warm-yellow palette. */
+.accent-word,
+.site-footer .accent-word,
+.services-page .accent-word,
+.site-nav a:hover,
+.site-nav .nav-contact:hover,
+.nav-group > a:hover,
+.nav-dropdown a:hover,
+.site-nav .nav-group:hover > a,
+.back-link:hover,
+.project:hover .project-signature,
+.project:hover .project-signature > span {
+  color: var(--warm-yellow) !important;
+}
+
+.project-open:focus-visible {
+  outline-color: var(--warm-yellow) !important;
+}
+
+.portfolio::after {
+  background: var(--warm-yellow) !important;
+}
+
+/* Portfolio photographs stay in full colour until a caption takes their place. */
+.project-image,
+.portfolio .project img.project-image {
+  filter: none !important;
+  transition: opacity 0.35s ease !important;
+}
+
+.project-open:hover img.project-image,
+.project-open:focus-visible img.project-image,
+.project:hover img.project-image {
+  filter: none !important;
+  opacity: 0 !important;
+  transform: none !important;
+}
+
+.portfolio .project .project-overlay {
+  background: var(--warm-yellow) !important;
+  transition: opacity 0.35s ease !important;
+}
+
+.portfolio .project .project-overlay strong,
+.portfolio .project .project-overlay small {
+  color: #1b1c1a !important;
+}
+
+.portfolio .project-open:hover .project-overlay,
+.portfolio .project-open:focus-visible .project-overlay,
+.portfolio .project:hover .project-overlay,
+.portfolio .project.is-caption-visible .project-overlay {
+  opacity: 1 !important;
+}
+
+.portfolio .project.is-caption-visible img.project-image {
+  opacity: 0 !important;
+  transform: none !important;
+}
+
+/* Non-portfolio imagery should remain coloured as well. */
+.detail-gallery img,
+.detail-gallery img:hover,
+.about-layout .about-image {
+  filter: none !important;
+}
+
+@media (max-width: 700px) {
+  .site-header::after {
+    height: 8px;
+  }
+
+  .portfolio .project .project-overlay {
+    opacity: 0 !important;
+  }
+
+  .portfolio .project.is-caption-visible .project-overlay {
+    opacity: 1 !important;
+  }
+}
